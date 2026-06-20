@@ -1,0 +1,86 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { faces } from '../data/faces';
+---
+<Layout title="Gallery" description="All 50 of Bard's Freaky Faces — AI-generated character art using SPADE-Face GAN">
+  <div class="gallery-header">
+    <h1>THE FACES</h1>
+    <p>50 characters. One of a kind. Created by misusing AI.</p>
+  </div>
+
+  <div class="gallery-grid">
+    {faces.map((face, i) => (
+      <div class="face-card" data-series={face.series}>
+        <img src={`/images/${face.file}`} alt={face.name} loading={i < 20 ? 'eager' : 'lazy'} />
+        <div class="face-label">
+          <span class="face-num">#{String(i+1).padStart(2,'0')}</span>
+          <span class="face-name">{face.name.toUpperCase()}</span>
+        </div>
+      </div>
+    ))}
+  </div>
+
+  <div class="gallery-footer">
+    <p>Collect on <a href="https://opensea.io/collection/bards-freaky-faces" target="_blank" rel="noopener">OpenSea</a> · View on <a href="https://superrare.com" target="_blank" rel="noopener">SuperRare</a></p>
+  </div>
+</Layout>
+
+<style>
+  .gallery-header {
+    padding: 3rem 2rem 2rem;
+    border-bottom: 1px solid #1a1a1a;
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+
+  .gallery-header h1 {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    letter-spacing: 0.4em;
+    color: var(--muted);
+    margin-bottom: 0.5rem;
+  }
+
+  .gallery-header p {
+    font-size: 1.5rem;
+    font-weight: 900;
+    color: var(--text);
+  }
+
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 2px;
+    padding: 2px;
+  }
+
+  .face-label {
+    padding: 0.4rem 0.75rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--bg2);
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    letter-spacing: 0.05em;
+    color: var(--muted);
+    transition: color 0.2s;
+  }
+
+  .face-card:hover .face-label { color: var(--green); }
+
+  .face-num { color: var(--pink); opacity: 0.6; }
+  .face-card:hover .face-num { opacity: 1; }
+
+  .gallery-footer {
+    padding: 3rem 2rem;
+    text-align: center;
+    border-top: 1px solid #1a1a1a;
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    color: var(--muted);
+  }
+
+  .gallery-footer a { color: var(--green); text-decoration: none; }
+  .gallery-footer a:hover { color: var(--pink); }
+</style>

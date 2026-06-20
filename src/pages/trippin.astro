@@ -1,0 +1,110 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { trippinFaces } from '../data/faces';
+---
+<Layout title="Trippin" description="Freaky Faces Trippin — the psychedelic variation series by Bård Ionson">
+  <div class="page-header">
+    <p class="tag">VARIATION SERIES</p>
+    <h1>FREAKY FACES<br/><span>TRIPPIN</span></h1>
+    <p class="desc">
+      Taking the Freaky Faces into new territory — experimental variations
+      pushing the AI-generated characters into stranger dimensions.
+    </p>
+  </div>
+
+  <section class="series-section">
+    <div class="series-label">
+      <span class="series-tag">CRUCIFIX SERIES</span>
+      <p>The faces stretched across cruciform geometry</p>
+    </div>
+    <div class="series-grid">
+      {trippinFaces.filter(f => f.series === 'crucifix').map(f => (
+        <div class="face-card">
+          <img src={`/images/${f.file}`} alt={f.name} loading="lazy" />
+          <div class="face-label">{f.name.toUpperCase()}</div>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <section class="series-section">
+    <div class="series-label">
+      <span class="series-tag">MIX SERIES</span>
+      <p>Faces blended and recombined through generative mixing</p>
+    </div>
+    <div class="series-grid">
+      {trippinFaces.filter(f => f.series === 'mix').map(f => (
+        <div class="face-card">
+          <img src={`/images/${f.file}`} alt={f.name} loading="lazy" />
+          <div class="face-label">{f.name.toUpperCase()}</div>
+        </div>
+      ))}
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .page-header {
+    padding: 4rem 4rem 3rem;
+    border-bottom: 1px solid #1a1a1a;
+    max-width: 900px;
+  }
+
+  .tag {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    color: var(--pink);
+    letter-spacing: 0.2em;
+    margin-bottom: 1rem;
+  }
+
+  h1 {
+    font-size: clamp(2.5rem, 6vw, 5rem);
+    line-height: 1;
+    letter-spacing: -0.02em;
+    margin-bottom: 1.5rem;
+    text-transform: uppercase;
+  }
+
+  h1 span { color: var(--pink); }
+
+  .desc {
+    font-size: 1rem;
+    color: #999;
+    line-height: 1.7;
+    max-width: 500px;
+  }
+
+  .series-section {
+    padding: 3rem 2rem 4rem;
+    border-bottom: 1px solid #1a1a1a;
+  }
+
+  .series-label {
+    margin-bottom: 2rem;
+  }
+
+  .series-tag {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.25em;
+    color: var(--cyan);
+    display: block;
+    margin-bottom: 0.5rem;
+  }
+
+  .series-label p {
+    color: var(--muted);
+    font-size: 0.9rem;
+  }
+
+  .series-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 2px;
+  }
+
+  @media (max-width: 600px) {
+    .page-header { padding: 2rem; }
+  }
+</style>

@@ -1,0 +1,163 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+<Layout title="About" description="About Bård Ionson — AI artist and creator of Bard's Freaky Faces">
+  <div class="about-layout">
+    <div class="about-img">
+      <img src="/images/digital_self_sm.jpg" alt="Bård Ionson — digital self portrait" />
+      <div class="img-overlay">
+        <span>DIGITAL SELF · Bård Ionson</span>
+      </div>
+    </div>
+    <div class="about-text">
+      <p class="tag">THE ARTIST</p>
+      <h1>BÅRD<br/>IONSON</h1>
+
+      <div class="bio">
+        <p>
+          Bård Ionson has been creating art since 2012. In 2018, SuperRare accepted him
+          to display art on their platform — one of the earliest crypto art galleries.
+        </p>
+        <p>
+          The Freaky Faces were born out of AI experimentation: using a system called
+          <strong>SPADE-Face</strong> trained on the CelebA dataset of celebrity faces,
+          Bård learned to manipulate the model and push it toward generating ugly,
+          unexpected, freaky characters the AI was never designed to make.
+        </p>
+        <p>
+          Each face was crudely sketched by hand, then fed to the GAN which hallucinated
+          the rest of the details. The results were then animated using
+          <strong>First Order Model</strong> — giving each character movement and voice.
+        </p>
+        <p>
+          Only <strong>50 Freaky Faces</strong> were ever created. The collection lives
+          on the Ethereum blockchain.
+        </p>
+      </div>
+
+      <div class="links">
+        <a href="https://opensea.io/collection/bards-freaky-faces" target="_blank" rel="noopener" class="link-item">
+          <span class="link-label">OPENSEA</span>
+          <span class="link-arrow">↗</span>
+        </a>
+        <a href="https://superrare.com" target="_blank" rel="noopener" class="link-item">
+          <span class="link-label">SUPERRARE</span>
+          <span class="link-arrow">↗</span>
+        </a>
+        <a href="https://bardionson.com" target="_blank" rel="noopener" class="link-item">
+          <span class="link-label">STUDIO SITE</span>
+          <span class="link-arrow">↗</span>
+        </a>
+        <a href="https://sageanomaly.com" target="_blank" rel="noopener" class="link-item">
+          <span class="link-label">SAGE ANOMALY</span>
+          <span class="link-arrow">↗</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</Layout>
+
+<style>
+  .about-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: calc(100vh - 140px);
+  }
+
+  .about-img {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .about-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    filter: saturate(0.4) contrast(1.15);
+  }
+
+  .img-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 1rem 1.5rem;
+    background: linear-gradient(transparent, rgba(0,0,0,0.8));
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    color: var(--muted);
+    letter-spacing: 0.1em;
+  }
+
+  .about-text {
+    padding: 5rem 4rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    justify-content: center;
+  }
+
+  .tag {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    color: var(--green);
+    letter-spacing: 0.2em;
+  }
+
+  h1 {
+    font-size: clamp(2.5rem, 5vw, 4.5rem);
+    line-height: 0.9;
+    letter-spacing: -0.02em;
+    text-transform: uppercase;
+  }
+
+  .bio {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    border-left: 2px solid #1a1a1a;
+    padding-left: 1.5rem;
+  }
+
+  .bio p {
+    color: #999;
+    line-height: 1.75;
+    font-size: 0.95rem;
+  }
+
+  .bio strong { color: var(--text); }
+
+  .links {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    border: 1px solid #1a1a1a;
+    margin-top: 1rem;
+  }
+
+  .link-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.85rem 1.25rem;
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    letter-spacing: 0.15em;
+    color: var(--muted);
+    text-decoration: none;
+    border-bottom: 1px solid #1a1a1a;
+    transition: background 0.2s, color 0.2s;
+  }
+
+  .link-item:last-child { border-bottom: none; }
+  .link-item:hover { background: #0f0f0f; color: var(--green); }
+  .link-arrow { color: var(--green); opacity: 0; transition: opacity 0.2s; }
+  .link-item:hover .link-arrow { opacity: 1; }
+
+  @media (max-width: 900px) {
+    .about-layout { grid-template-columns: 1fr; }
+    .about-img { height: 50vw; min-height: 250px; }
+    .about-text { padding: 2rem; }
+  }
+</style>

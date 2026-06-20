@@ -1,0 +1,384 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { faces } from '../data/faces';
+const featured = faces.slice(0, 12);
+---
+<Layout title="Home">
+  <section class="hero">
+    <div class="hero-noise" aria-hidden="true"></div>
+    <div class="hero-content">
+      <p class="hero-tag">AI • GAN • SPADE-Face • First Order Model</p>
+      <h1>BARD'S<br/><span class="glitch" data-text="FREAKY">FREAKY</span><br/>FACES</h1>
+      <p class="hero-desc">
+        50 characters crudely drawn by Bård Ionson —<br/>
+        AI GAN processing fills in the details.<br/>
+        Born from the CelebA dataset. Only 50 ever created.
+      </p>
+      <div class="hero-ctas">
+        <a href="/gallery" class="btn-primary">View All 50 Faces</a>
+        <a href="https://opensea.io/collection/bards-freaky-faces" target="_blank" rel="noopener" class="btn-secondary">Collect on OpenSea ↗</a>
+      </div>
+    </div>
+    <div class="hero-face-strip">
+      {faces.slice(0,6).map(f => (
+        <div class="strip-face">
+          <img src={`/images/${f.file}`} alt={f.name} loading="eager" />
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <section class="about-strip">
+    <div class="about-inner">
+      <div class="stat"><span class="stat-n">50</span><span class="stat-l">Total Faces</span></div>
+      <div class="stat-div"></div>
+      <div class="stat"><span class="stat-n">2020</span><span class="stat-l">Year Created</span></div>
+      <div class="stat-div"></div>
+      <div class="stat"><span class="stat-n">GAN</span><span class="stat-l">AI Technology</span></div>
+      <div class="stat-div"></div>
+      <div class="stat"><span class="stat-n">SuperRare</span><span class="stat-l">Exhibited On</span></div>
+    </div>
+  </section>
+
+  <section class="gallery-preview">
+    <div class="section-header">
+      <h2>THE COLLECTION</h2>
+      <a href="/gallery" class="see-all">See All 50 →</a>
+    </div>
+    <div class="grid-preview">
+      {featured.map(f => (
+        <div class="face-card">
+          <img src={`/images/${f.file}`} alt={f.name} loading="lazy" />
+          <div class="face-label">{f.name.toUpperCase()}</div>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <section class="process-section">
+    <div class="process-inner">
+      <div class="process-text">
+        <h2>HOW THEY WERE MADE</h2>
+        <p>
+          Using a system called <strong>SPADE-Face</strong> trained on celebrity faces from the CelebA dataset,
+          Bård Ionson learned to manipulate the model and generate ugly, freaky, unexpected faces.
+        </p>
+        <p>
+          The faces were then animated using <strong>First Order Model</strong> — now they have something to say.
+        </p>
+        <p>
+          Only <strong>50 were ever created</strong>. The process of misusing AI to generate art
+          that the AI was never meant to make.
+        </p>
+        <a href="/about" class="btn-secondary">About the Artist →</a>
+      </div>
+      <div class="process-img">
+        <img src="/images/DeepPrivacy.jpg" alt="AI face generation process" />
+        <span class="img-caption">DeepPrivacy — the tool behind the faces</span>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .hero {
+    min-height: 90vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    position: relative;
+    overflow: hidden;
+    border-bottom: 1px solid #1a1a1a;
+  }
+
+  .hero-noise {
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+    pointer-events: none;
+    opacity: 0.4;
+  }
+
+  .hero-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 4rem 3rem 4rem 4rem;
+    z-index: 1;
+  }
+
+  .hero-tag {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    color: var(--green);
+    letter-spacing: 0.2em;
+    margin-bottom: 1.5rem;
+    text-shadow: 0 0 8px var(--green);
+  }
+
+  h1 {
+    font-size: clamp(3.5rem, 8vw, 7rem);
+    line-height: 0.9;
+    letter-spacing: -0.02em;
+    color: var(--text);
+    margin-bottom: 1.5rem;
+    text-transform: uppercase;
+  }
+
+  .glitch {
+    position: relative;
+    display: inline-block;
+    color: var(--pink);
+  }
+
+  .glitch::before,
+  .glitch::after {
+    content: attr(data-text);
+    position: absolute;
+    inset: 0;
+    opacity: 0.8;
+  }
+
+  .glitch::before {
+    color: var(--cyan);
+    animation: glitch-text-1 3s infinite;
+    clip-path: inset(0 0 60% 0);
+  }
+
+  .glitch::after {
+    color: var(--green);
+    animation: glitch-text-2 3s infinite;
+    clip-path: inset(50% 0 0 0);
+  }
+
+  @keyframes glitch-text-1 {
+    0%, 90%, 100% { transform: translate(0); }
+    92% { transform: translate(-3px, 1px); }
+    94% { transform: translate(3px, -1px); }
+    96% { transform: translate(-2px, 0); }
+  }
+
+  @keyframes glitch-text-2 {
+    0%, 90%, 100% { transform: translate(0); }
+    91% { transform: translate(3px, 0); }
+    93% { transform: translate(-3px, 1px); }
+    95% { transform: translate(2px, -1px); }
+  }
+
+  .hero-desc {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: #aaa;
+    margin-bottom: 2rem;
+    max-width: 420px;
+  }
+
+  .hero-ctas {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .btn-primary {
+    background: var(--green);
+    color: #000;
+    padding: 0.75rem 1.75rem;
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: background 0.2s, transform 0.2s;
+  }
+
+  .btn-primary:hover {
+    background: var(--pink);
+    transform: translate(-2px, -2px);
+    color: #000;
+  }
+
+  .btn-secondary {
+    border: 1px solid var(--muted);
+    color: var(--text);
+    padding: 0.75rem 1.75rem;
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    letter-spacing: 0.1em;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: border-color 0.2s, color 0.2s;
+  }
+
+  .btn-secondary:hover { border-color: var(--green); color: var(--green); }
+
+  .hero-face-strip {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    gap: 2px;
+    overflow: hidden;
+  }
+
+  .strip-face { overflow: hidden; }
+  .strip-face img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    filter: saturate(0.8) contrast(1.1);
+    transition: filter 0.4s;
+  }
+  .strip-face:hover img { filter: saturate(1.5) contrast(1.2); }
+
+  .about-strip {
+    background: var(--bg2);
+    border-bottom: 1px solid #1a1a1a;
+  }
+
+  .about-inner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+    padding: 2rem;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .stat {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem 2.5rem;
+    text-align: center;
+  }
+
+  .stat-n {
+    font-family: var(--font-mono);
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--green);
+  }
+
+  .stat-l {
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    color: var(--muted);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-top: 0.25rem;
+  }
+
+  .stat-div {
+    width: 1px;
+    height: 40px;
+    background: #2a2a2a;
+  }
+
+  .gallery-preview {
+    padding: 4rem 2rem;
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+
+  .section-header {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+  }
+
+  .section-header h2 {
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    letter-spacing: 0.3em;
+    color: var(--muted);
+  }
+
+  .see-all {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--green);
+    text-decoration: none;
+    letter-spacing: 0.1em;
+  }
+
+  .grid-preview {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 2px;
+  }
+
+  .process-section {
+    background: var(--bg2);
+    border-top: 1px solid #1a1a1a;
+  }
+
+  .process-inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .process-text {
+    padding: 4rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    justify-content: center;
+  }
+
+  .process-text h2 {
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    letter-spacing: 0.3em;
+    color: var(--muted);
+    margin-bottom: 0.5rem;
+  }
+
+  .process-text p {
+    color: #aaa;
+    line-height: 1.75;
+    font-size: 0.95rem;
+  }
+
+  .process-text strong { color: var(--text); }
+
+  .process-img {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .process-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    filter: saturate(0.3) contrast(1.2);
+  }
+
+  .img-caption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 0.5rem 1rem;
+    background: rgba(0,0,0,0.7);
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    color: var(--muted);
+    letter-spacing: 0.1em;
+  }
+
+  @media (max-width: 900px) {
+    .hero { grid-template-columns: 1fr; }
+    .hero-face-strip { grid-template-columns: repeat(3, 1fr); grid-template-rows: repeat(2, 1fr); height: 300px; }
+    .process-inner { grid-template-columns: 1fr; }
+    .process-img { height: 300px; }
+    .process-text { padding: 2rem; }
+    .about-inner { flex-wrap: wrap; gap: 0.5rem; }
+    .stat-div { display: none; }
+    h1 { font-size: 3rem; }
+  }
+</style>

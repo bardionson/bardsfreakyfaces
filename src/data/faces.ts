@@ -1,0 +1,68 @@
+export interface Face {
+  id: string;
+  name: string;
+  file: string;
+  series?: string;
+}
+
+export const faces: Face[] = [
+  { id: 'g1a', name: 'Freddy', file: 'g1-FreakyFreddy.jpeg' },
+  { id: 'g1b', name: 'Crooked', file: 'g1-crooked3.jpg' },
+  { id: 'g2a', name: 'Freaky Alien', file: 'g2freakyAlien.jpg' },
+  { id: 'g2b', name: 'Freaky Alien Steg', file: 'g2freakyAliensteg.jpeg', series: 'steg' },
+  { id: 'g3', name: 'Blinded Cyclops', file: 'g3-blinded-cyclopssteg.jpg', series: 'steg' },
+  { id: 'g4', name: 'Gritty Big Ears', file: 'g4-grittyBigEarsteg.jpg', series: 'steg' },
+  { id: 'g5', name: 'Sally', file: 'g5-Sallysteg.jpeg', series: 'steg' },
+  { id: 'g6', name: 'Mary Cyclopse', file: 'g6-mary-cyclopse2steg.jpg', series: 'steg' },
+  { id: 'g7', name: 'Cyclops Two Mouth', file: 'g7-cyclopseTwoMouthsteg.jpg', series: 'steg' },
+  { id: 'g8', name: 'Alien More Eyes', file: 'g8-alienMoreEyesteg.jpg', series: 'steg' },
+  { id: 'g9', name: 'Max', file: 'g9-max.jpg' },
+  { id: 'g10', name: 'Cyclops Two Mouth II', file: 'g10-cyclops2mouth.jpg' },
+  { id: 'g11', name: 'Alien Three Eyes', file: 'g11-alien-threeEyes.jpg' },
+  { id: 'g12', name: 'Cyclops Two Mouth III', file: 'g12-cyclops2mouth.jpg' },
+  { id: 'g13', name: 'Singer of Hope', file: 'g13-singerOfHope.jpg' },
+  { id: 'g14', name: 'Three Eyes Red Lips', file: 'g14-threeEyesRedLips.jpg' },
+  { id: 'g15', name: 'Flat Head', file: 'g15-flatHead.jpg' },
+  { id: 'g16', name: 'Cyclops Alien Red Eye', file: 'g16-cyclopsAlienRedEye.jpg' },
+  { id: 'g17', name: 'Cyclopse Long Hair', file: 'g17-cyclopseTwoMouthLongHair.jpg' },
+  { id: 'g18', name: 'Alien No Eye', file: 'g18-alienNoEye.jpg' },
+  { id: 'g19', name: 'SPADE Cyclopse', file: 'g19-SPADE-FACE-cyclopse3.jpeg.jpg' },
+  { id: 'g20', name: 'Three Eyes Yellow', file: 'g20-threeEyesYellow.jpg' },
+  { id: 'g21', name: 'Freaky Face', file: 'g21-freaky-face.jpg' },
+  { id: 'g22', name: 'Alien Three Eye Eagle', file: 'g22-alienThreeEyeEagle.jpg' },
+  { id: 'g23', name: 'One Eye Joe', file: 'g23-oneEyeJoe.jpg' },
+  { id: 'g24', name: 'Crooked II', file: 'g24-crooked.jpg' },
+  { id: 'g25', name: 'Cyclopse Two Mouth III', file: 'g25-cyclopseTwoMouth3.jpg' },
+  { id: 'g26', name: 'Manafort Truth', file: 'g26-manafortTruth.jpg' },
+  { id: 'g27', name: 'Talos', file: 'g27-talos.jpg' },
+  { id: 'g28', name: 'Freaky American', file: 'g28-Freakyamerican.jpg' },
+  { id: 'g29', name: 'Beach', file: 'g29-nudesBeach.jpg' },
+  { id: 'g30', name: 'Cyclopse Long Hair IV', file: 'g30-cyclopseTwoMouthLongHair4.jpg' },
+  { id: 'g31', name: 'Alien Eye Hole', file: 'g31-alienEyeHole.jpg' },
+  { id: 'g32', name: 'Alien One Eye', file: 'g32-alienOneEye.jpg' },
+  { id: 'g33', name: 'Crooked IV', file: 'g33-crooked4.jpg' },
+  { id: 'g34', name: 'Alien Three Eye', file: 'g34-alienThreeEye.jpg' },
+  { id: 'g35', name: 'Cool Cyclopse', file: 'g35-coolcyclopseClosedMouth.jpg' },
+  { id: 'g36', name: 'Cy Actor', file: 'g36-cy-actor.jpg' },
+  { id: 'g37', name: 'Sally Crooked', file: 'g37-sally-crooked5.jpg' },
+  { id: 'g38', name: 'Sally Again', file: 'g38-sallyAgain.jpg' },
+  { id: 'g39', name: 'Cyclopse Two Mouth II', file: 'g39-cyclopseTwoMouth2.jpg' },
+  { id: 'g40', name: 'Cyclopse Long Hair', file: 'g40-cyclopseTwoMouthLongHair.jpg' },
+  { id: 'g41', name: 'Zip It Sally', file: 'g41-zipItSally.jpg' },
+  { id: 'g42', name: 'Rockstar', file: 'g42-rockstar.jpg' },
+  { id: 'g43', name: 'Style', file: 'g43-style.jpg' },
+];
+
+export const trippinFaces: Face[] = [
+  { id: 'cx10', name: 'Crucifix 10', file: 'Crucifix-Faces_70_0010.jpeg', series: 'crucifix' },
+  { id: 'cx17', name: 'Crucifix 17', file: 'Crucifix-Faces_70_0017.jpeg', series: 'crucifix' },
+  { id: 'cx36', name: 'Crucifix 36', file: 'Crucifix-Faces_70_0036.jpeg', series: 'crucifix' },
+  { id: 'cx40', name: 'Crucifix 40', file: 'Crucifix-Faces_70_0040.jpeg', series: 'crucifix' },
+  { id: 'cx48', name: 'Crucifix 48', file: 'Crucifix-Faces_70_0048.jpeg', series: 'crucifix' },
+  { id: 'mx1', name: 'Mix 1', file: 'mix-image-2068-116341083.jpeg', series: 'mix' },
+  { id: 'mx2', name: 'Mix 2', file: 'mix-image-2068-116341338.jpeg', series: 'mix' },
+  { id: 'mx3', name: 'Mix 3', file: 'mix-image-2068-116344421.jpeg', series: 'mix' },
+  { id: 'mx4', name: 'Mix 4', file: 'mix-image-2068-116423210.jpeg', series: 'mix' },
+  { id: 'mx5', name: 'Mix 5', file: 'mix-image-2068-116423415.jpeg', series: 'mix' },
+  { id: 'mx6', name: 'Mix 6', file: 'mix-image-2068-116423464.jpeg', series: 'mix' },
+];
