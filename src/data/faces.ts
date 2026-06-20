@@ -47,7 +47,7 @@ export const faces: Face[] = [
   { id: 'g34', name: 'Alien Three Eye', file: 'g34-alienThreeEye.jpg', opensea: `${OS}Alien+Three+Eye` },
   { id: 'g35', name: 'Cool Cyclopse', file: 'g35-coolcyclopseClosedMouth.jpg', opensea: `${OS}Cool+Cyclopse` },
   { id: 'g36', name: 'Cy Actor', file: 'g36-cy-actor.jpg', opensea: `${OS}Cy+Actor` },
-  { id: 'g37', name: 'Sally Crooked', file: 'g37-sally-crooked5.jpg', opensea: `${OS}Sally` },
+  { id: 'g37', name: 'Sally Thinks', file: 'g37-sally-crooked5.jpg', opensea: 'https://opensea.io/item/ethereum/0x495f947276749ce646f68ac8c248420045cb7b5e/810997941458587079129982788559625180955273022260352246331296160595780304897' },
   { id: 'g38', name: 'Sally Again', file: 'g38-sallyAgain.jpg', opensea: `${OS}Sally` },
   { id: 'g39', name: 'Cyclopse Two Mouth II', file: 'g39-cyclopseTwoMouth2.jpg', opensea: `${OS}Cyclopse+Two+Mouth` },
   { id: 'g40', name: 'Cyclopse Long Hair III', file: 'g40-cyclopseTwoMouthLongHair.jpg', opensea: `${OS}Cyclopse+Long+Hair` },
