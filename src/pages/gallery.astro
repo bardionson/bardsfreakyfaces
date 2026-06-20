@@ -10,18 +10,18 @@ import { faces } from '../data/faces';
 
   <div class="gallery-grid">
     {faces.map((face, i) => (
-      <div class="face-card" data-series={face.series}>
+      <a class="face-card" data-series={face.series} href={face.opensea} target="_blank" rel="noopener noreferrer">
         <img src={`/images/${face.file}`} alt={face.name} loading={i < 20 ? 'eager' : 'lazy'} />
         <div class="face-label">
           <span class="face-num">#{String(i+1).padStart(2,'0')}</span>
           <span class="face-name">{face.name.toUpperCase()}</span>
         </div>
-      </div>
+      </a>
     ))}
   </div>
 
   <div class="gallery-footer">
-    <p>Collect on <a href="https://opensea.io/collection/bards-freaky-faces" target="_blank" rel="noopener">OpenSea</a> · View on <a href="https://superrare.com" target="_blank" rel="noopener">SuperRare</a></p>
+    <p>Collect on <a href="https://opensea.io/collection/bards-freaky-faces" target="_blank" rel="noopener">OpenSea</a></p>
   </div>
 </Layout>
 

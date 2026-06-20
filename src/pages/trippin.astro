@@ -19,10 +19,10 @@ import { trippinFaces } from '../data/faces';
     </div>
     <div class="series-grid">
       {trippinFaces.filter(f => f.series === 'crucifix').map(f => (
-        <div class="face-card">
+        <a class="face-card" href={f.opensea} target="_blank" rel="noopener noreferrer">
           <img src={`/images/${f.file}`} alt={f.name} loading="lazy" />
           <div class="face-label">{f.name.toUpperCase()}</div>
-        </div>
+        </a>
       ))}
     </div>
   </section>
@@ -34,10 +34,10 @@ import { trippinFaces } from '../data/faces';
     </div>
     <div class="series-grid">
       {trippinFaces.filter(f => f.series === 'mix').map(f => (
-        <div class="face-card">
+        <a class="face-card" href={f.opensea} target="_blank" rel="noopener noreferrer">
           <img src={`/images/${f.file}`} alt={f.name} loading="lazy" />
           <div class="face-label">{f.name.toUpperCase()}</div>
-        </div>
+        </a>
       ))}
     </div>
   </section>
