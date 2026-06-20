@@ -53,7 +53,7 @@ export const faces: Face[] = [
   { id: 'g40', name: 'Cyclopse Long Hair III', file: 'g40-cyclopseTwoMouthLongHair.jpg', opensea: `${OS}Cyclopse+Long+Hair` },
   { id: 'g41', name: 'Zip It Sally', file: 'g41-zipItSally.jpg', opensea: `${OS}Zip+It+Sally` },
   { id: 'g42', name: 'Rockstar', file: 'g42-rockstar.jpg', opensea: `${OS}Rockstar` },
-  { id: 'g43', name: 'Style', file: 'g43-style.jpg', opensea: `${OS}Style` },
+  { id: 'g43', name: 'Style', file: 'g43-style.jpg', opensea: 'https://opensea.io/item/ethereum/0x495f947276749ce646f68ac8c248420045cb7b5e/810997941458587079129982788559625180955273022260352246331296167192850071553' },
 ];
 
 export const trippinFaces: Face[] = [
