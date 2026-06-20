@@ -11,7 +11,15 @@ import { faces } from '../data/faces';
   <div class="gallery-grid">
     {faces.map((face, i) => (
       <a class="face-card" data-series={face.series} href={face.opensea} target="_blank" rel="noopener noreferrer">
-        <img src={`/images/${face.file}`} alt={face.name} loading={i < 20 ? 'eager' : 'lazy'} />
+        {face.video ? (
+          <video autoplay loop muted playsinline poster={face.poster}>
+            <source src={face.video} type="video/mp4" />
+          </video>
+        ) : face.poster ? (
+          <img src={face.poster} alt={face.name} loading="lazy" />
+        ) : (
+          <img src={`/images/${face.file}`} alt={face.name} loading={i < 20 ? 'eager' : 'lazy'} />
+        )}
         <div class="face-label">
           <span class="face-num">#{String(i+1).padStart(2,'0')}</span>
           <span class="face-name">{face.name.toUpperCase()}</span>

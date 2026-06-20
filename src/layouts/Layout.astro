@@ -165,7 +165,8 @@ const { title, description = "Bard's Freaky Faces — AI-generated character art
 
   .face-card:hover { border-color: var(--green); }
 
-  .face-card img {
+  .face-card img,
+  .face-card video {
     width: 100%;
     aspect-ratio: 1;
     object-fit: cover;
@@ -173,7 +174,8 @@ const { title, description = "Bard's Freaky Faces — AI-generated character art
     transition: transform 0.3s;
   }
 
-  .face-card:hover img { transform: scale(1.03); }
+  .face-card:hover img,
+  .face-card:hover video { transform: scale(1.03); }
 
   .face-card::before,
   .face-card::after {
